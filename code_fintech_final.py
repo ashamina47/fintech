@@ -114,7 +114,7 @@ except Exception as e:
 
 # Additional analysis for structural break
 try:
-    final_data['post_zero_rates'] = (final_data['YEAR'] >= 2009).astype(int)
+    final_data['post_zero_rates'] = ((final_data['YEAR'] >= 2009) & (final_data['YEAR'] <= 2016)).astype(int)
     final_data['interaction'] = final_data['SLOPE'] * final_data['post_zero_rates']
 
     # Redefine the model with interaction term
